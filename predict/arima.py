@@ -7,7 +7,7 @@ from statsmodels.tsa.arima.model import ARIMA
 
 # 假设类别目录前缀，可根据实际情况修改
 data_dir = '../GCD_VMs_new/'
-out_dir = './arima_ret'
+out_dir = './predict_out/arima_ret'
 
 # 用于存储每个类别的准确率
 accuracies_per_category = []

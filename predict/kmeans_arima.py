@@ -1,12 +1,12 @@
 from pathlib import Path
 from cluster import kmeans
-from predict.predict.arima import arima_model
+from predict.arima import arima_model
 
 kmeans_train_dir = '../GCD_VMs_new'
-kmeans_target_dir = './kmeans_out'
+kmeans_target_dir = './predict_out/kmeans_out'
 prefix = 'kmeans_'
-kmeans_dir = './kmeans_out'
-arima_out = './kmeans_arima_out'
+kmeans_dir = './predict_out/kmeans_out'
+arima_out = './predict_out/kmeans_arima_out'
 
 kmeans.kmeans(kmeans_train_dir, kmeans_target_dir, prefix)
 # 按照每个类别进行arima预测
