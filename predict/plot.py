@@ -5,8 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 定义目录路径
-directory = './arima_ret'
-out_dir = './arima_plot'
+directory = './predict_out/arima_ret'
+out_dir = './predict_out/arima_plot'
 
 Path(out_dir).mkdir(parents=True, exist_ok=True)
 # 遍历目录下的所有文件
