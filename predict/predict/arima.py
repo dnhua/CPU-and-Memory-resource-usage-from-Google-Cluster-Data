@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 
-def arima_model(data_dir, out_dir):
+def arima_model(data_dir, out_dir, walk_step):
     # 遍历类别目录中的每个文件
     for filename in os.listdir(data_dir):
         file_path = os.path.join(data_dir, filename)
@@ -19,9 +19,9 @@ def arima_model(data_dir, out_dir):
         predictions = []
         actuals = []
 
-        # 从第 9 个数据点开始，使用前 8 个数据点进行预测
-        for i in range(8, len(data)):
-            train_data = data[i - 8:i]
+        # 从第 walk_step+1 个数据点开始，使用前 walk_step 个数据点进行预测
+        for i in range(walk_step, len(data)):
+            train_data = data[i - walk_step:i]
             actual = data[i]
             # print(train_data)
 
