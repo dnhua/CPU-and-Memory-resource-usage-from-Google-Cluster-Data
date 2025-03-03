@@ -42,9 +42,18 @@ counts = [below_80, between_80_85, between_85_90, between_90_95, between_95_97, 
 print(counts)
 
 # 绘制柱状图
-plt.bar(intervals, counts)
+bars = plt.bar(intervals, counts)
+# 在柱子上标注数量
+for bar in bars:
+    height = bar.get_height()
+    plt.annotate(f'{height}',
+                 xy=(bar.get_x() + bar.get_width() / 2, height),
+                 xytext=(0, 3),  # 3 points vertical offset
+                 textcoords="offset points",
+                 ha='center', va='bottom')
 plt.xlabel('Accuracy Intervals')
 plt.ylabel('Number of Samples')
 plt.title('Distribution of Prediction Accuracy')
 plt.grid(True)
-plt.show()
+# plt.show()
+plt.savefig('./errs_for_each_point.png')
